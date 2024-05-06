@@ -1,17 +1,547 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Mrh's Home</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="photo-box">
-            <img id="photo" src="./photos/100003.jpg" alt="Photo">
-        </div>
-    </div>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="clion%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B">CLion破解教程</h1>
+<h2 id="%E4%B8%80-%E5%A6%82%E6%9E%9C%E8%BF%98%E6%B2%A1%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%85%88%E5%AE%89%E8%A3%85-%E5%AE%98%E7%BD%91%E4%B8%8B%E8%BD%BD-%E7%82%B9%E5%87%BB%E4%B8%8B%E8%BD%BD">一. 如果还没安装软件，先安装 官网下载  <a href="https://www.jetbrains.com/products/">点击下载</a></h2>
+<h2 id="%E4%BA%8C-%E5%A6%82%E6%9E%9C%E5%B7%B2%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%A0%B9%E6%8D%AE%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9C%AC%E7%9C%8B%E4%B8%8B%E9%9D%A2%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B">二. 如果已安装软件，根据软件版本看下面激活教程</h2>
+<h3 id="1-2020-2024%E5%B9%B4%E7%89%88%E6%9C%AC">1. 2020-2024年版本</h3>
+<hr>
+<p><strong>注意</strong>： 仅支持官网专业版2020-2024的激活。不支持社区版<strong>toolbox</strong>下载的<br>
+百度云盘下载激活文件  <a href="https://pan.baidu.com/s/1DvhMqHixKhLvlvsfMNqp9Q?pwd=hhot">点击下载</a> <br>
+提取码: hhot <br>
+<strong>根据自己的系统选择不同的激活工具</strong><br>
+<img src="image-37.png" alt="alt text"></p>
+<h4 id="1-windows%E7%B3%BB%E7%BB%9F-br">1) <strong>windows系统</strong> <br></h4>
+<ol>
+<li>
+<p>选择for_win.zip下载并解压 <br></p>
+</li>
+<li>
+<p>解压完毕后，找到激活需要激活软件对应的<strong>vbs</strong>文件并<strong>双击运行</strong><br>
+双击vbs脚本前：先打开一次你的软件，然后关闭即可。记得关闭软件后-再双击脚本哦。<br>
+<img src="image-40.png" alt="alt text"></p>
+</li>
+<li>
+<p>软件执行成功提示，怎么看激活成功了没请看下文的<strong>三. 激活成功</strong>部分 <br>
+<img src="image-41.png" alt="alt text"></p>
+</li>
+<li>
+<p>如果激活失败，请检查下面原因：<br>
+a. 如果双击提示: <br>
+<img src="image-6.png" alt="alt text">
+<img src="image-7.png" alt="alt text"></p>
+<p>b. 激活失败首先检查这3点: <br>
+i. 提示<strong>success</strong>了吗<br>
+<img src="image-8.png" alt="alt text"> <br>
+提示后，要重启软件<br>
+ii. 是官网专业版吗（不支持社区版和ToolBox的），去官网下载专业版<br>
+iii. 是2020-2023版本吗，如果是2018-2019的，请看下文相关的介绍<br></p>
+<p>c. 如果您之前倒腾过其他破解方式或者其他店里的，请先使用下面的<br>
+<strong>注意</strong>：文件仅自动删除网上通用激活jetbrains所添加的环境变量，不做其他任何操作，放心食用！<br>
+i. 下载该文件并解压<br>
+<img src="image-12.png" alt="alt text"> <br>
+ii. 双击vbs文件<br>
+<img src="image-10.png" alt="alt text"> <br>
+iii. 重新上述的激活操作 <br></p>
+</li>
+</ol>
+<h4 id="2-mac%E7%B3%BB%E7%BB%9F-br">2) <strong>Mac系统</strong> <br></h4>
+<ol>
+<li>
+<p>选择for_mac.zip下载并解压 <br></p>
+</li>
+<li>
+<p>解压后使用终端打开文件夹 <br></p>
+</li>
+<li>
+<p>运行脚本，输入对应软件的命令-回车 <br>
+<strong>注意</strong>：运行命令前，先打开你要激活的软件。然后关闭软件，最后输入命令激活软件哦。<br>
+如果你要激活idea： 则输入 sh idea.sh <br>
+如果你要激活pycharm： 则输入 sh pycharm.sh <br>
+如果你要激活datagrip： 则输入 sh datagrip.sh <br>
+如果你要激活clion： 则输入 sh clion.sh <br>
+如果你要激活goland： 则输入 sh goland.sh <br>
+如果你要激活webstorm： 则输入 sh webstorm.sh <br>
+如果你要激活phpstorm： 则输入 sh phpstorm.sh <br>
+如果你要激活dataspell： 则输入 sh dataspell.sh <br>
+如果你要激活rider： 则输入 sh rider.sh <br>
+<img src="image-11.png" alt="alt text"></p>
+</li>
+<li>
+<p>激活成功提示，有效期怎么查看请看下文  <strong>三. 激活成功</strong>  部分</p>
+</li>
+<li>
+<p>如果您之前倒腾过其他破解方式或者其他店里的，请先使用下面的<br>
+<strong>注意</strong>：文件仅自动删除网上通用激活jetbrains所添加的环境变量，不做其他任何操作，放心食用！<br>
+i. 下载该文件并解压<br><img src="image-13.png" alt="alt text"> <br>
+ii. 使用终端打开并执行下面两行指令<br>
+iii. 执行结束，输出“done”后，重启一下电脑，再重复激活步骤。 <br></p>
+</li>
+</ol>
+<pre class="hljs"><code><div>    chmod +x rowback.sh
+    sh rowback.sh
+</div></code></pre>
+<h4 id="3-linux%E7%B3%BB%E7%BB%9F-br">3) <strong>Linux系统</strong> <br></h4>
+<p>● 本教程适用于 JetBrains 全系列产品，包括 Pycharm、IDEA、WebStorm、Phpstorm、Datagrip、CLion等。<br>
+● 教程以Pycharm为例，其他工具通用，界面菜单位置均相同！~ <br></p>
+<ol>
+<li>选择for_linux.zip下载并解压 <br></li>
+<li>解压后使用终端打开文件夹，运行install.sh文件，为当前用户添加环境变量 <br></li>
+</ol>
+<pre class="hljs"><code><div>    chmod +x install.sh
+    ./install.sh
+</div></code></pre>
+<p><img src="image-14.png" alt="alt text"><br>
+3. 复制粘贴激活码 <br>
+Linux需要重启系统，重启后，打开2023 文件夹里的 激活码.txt，选择对应软件的激活码，复制粘贴如下图：<br>
+PS：激活码要选择对应软件的，Pycharm、idea等每个软件激活码是单独的；<br>
+<img src="image-42.png" alt="alt text"> <br>
+<img src="image-43.png" alt="alt text"> <br>
+2023版本不像2021显示 2099年，实际上可以永久使用，这儿的时间只是数字，市场上2099 5000均是认为修改，不代表真实时间。<br></p>
+<h3 id="2-2018-2019%E5%B9%B4%E7%89%88%E6%9C%AC">2. 2018-2019年版本</h3>
+<p>本教程适用于 JetBrains 全系列产品，教程以Pycharm为例 ，IDEA、WebStorm、Phpstorm、Datagrip、CLion 等通用，界面菜单位置均相同。<br></p>
+<p>百度云盘下载激活文件  <a href="https://pan.baidu.com/s/1KyMlBVSW2ptRGk32L99zFA?pwd=cool">点击下载</a> <br>
+提取码: cool <br></p>
+<p><strong>根据自己的系统选择不同的激活工具</strong><br>
+<img src="image-29.png" alt="alt text"> <br></p>
+<h4 id="1-windows%E7%B3%BB%E7%BB%9F-br">1) <strong>windows系统</strong> <br></h4>
+<p>1、下载激活文件，解压到本地，解压后目录如下：<br>
+<img src="image-18.png" alt="alt text"><br>
+以2021为例，打开如下：<br>
+<img src="image-19.png" alt="alt text"><br>
+2、双击【一键工具.vbs】<br>
+出现弹窗显示success即可（过程需要几秒）<br>
+【vbs文件只是为了简化操作，避免同学操作失误，请放心食用】<br>
+3、重启软件<br></p>
+<p>打开后软件即激活成功! <br>
+验证激活：新建一个项目 或 打开已有项目，进入主界面,选help 菜单  --&gt; register选项<br>
+<img src="image-44.png" alt="alt text"> <br>
+看到已经激活至2099年！<br>
+<img src="image-45.png" alt="alt text"> <br></p>
+<h4 id="2-mac%E7%B3%BB%E7%BB%9F-br">2) <strong>Mac系统</strong> <br></h4>
+<ol>
+<li>准备工作： 打开访达--&gt;左上角访达--&gt;服务--&gt;服务偏好设置 <br>
+<img src="image-46.png" alt="alt text"> <br>
+在弹出的窗口中勾选新建位于文件夹位置的终端窗口（如已勾选请跳过）<br>
+<img src="image-47.png" alt="alt text"> <br></li>
+<li>打开激活文件 mac.zip，解压缩（有的系统会自动解压，有的需要手动解压）<br>
+1）在macjihuo20XX文件夹上（作者是2021版本）右击， 选择新建位于文件夹位置的终端窗口
+（有的Mac终端在右击--&gt;服务--&gt;新建位于文件夹位置的终端窗口）<br>
+<img src="image-25.png" alt=""><br>
+2）在终端窗口，输入下面两行，输入一行 回车，再输另一行 注意空格 <br></li>
+</ol>
+<pre class="hljs"><code><div>    chmod +x mac.sh
+   ./mac.sh
+</div></code></pre>
+<p><img src="image-26.png" alt="alt text"><br>
+3. 重启软件，已经激活成功了，验证激活效果
+随便新建 或者 打开一个项目，点菜单Help--&gt;register，查看已激活至2099年！<br>
+<img src="image-27.png" alt="alt text"><br></p>
+<h4 id="3-linux%E7%B3%BB%E7%BB%9F-br">3) <strong>Linux系统</strong> <br></h4>
+<ol>
+<li>下载激活文件，解压缩 <br>
+打开对应版本的linuxjihuo20XX文件夹（作者是2021版本），右击打开终端Open inTerminal <br>
+<img src="image-30.png" alt="alt text"><br></li>
+<li>在新打开的终端窗口内依次输入(输完一行一个回车 注意空格) <br>
+执行前先关闭软件，防止软件打开状态下有资源占用。<br>
+终端命令窗口，输入下面两行，输入一行 回车，再输另一行 <br></li>
+</ol>
+<pre class="hljs"><code><div>    chmod +x linux.sh
+   ./linux.sh
+</div></code></pre>
+<p>实际界面如下 注意空格，注意别输错单词：<br>
+<img src="image-31.png" alt=""> <br>
+3. 重启软件，复制粘贴激活码 <br>
+将文件夹中 activation code.txt 的内容复制粘贴到Activation code区域 <br>
+<img src="image-32.png" alt="alt text"> <br>
+<img src="image-33.png" alt="alt text"> <br></p>
+<h2 id="%E4%B8%89-%E6%BF%80%E6%B4%BB%E6%88%90%E5%8A%9F">三. 激活成功</h2>
+<p>时间显示2099、2025年都是永久使用的，请放心使用！<br>
+只要显示有（you hava perpetual fallback license for this version）<br>
+不用管时间显示问题，不卸载就能用，放心使用哈。<br></p>
+<p>查看方式一: 点击左下角小齿轮-&gt;点击Manage Licences <br>
+<img src="image-48.png" alt="alt text"> <br>
+<img src="image-49.png" alt="alt text"> <br></p>
+<p>查看方式二: 菜单栏 help（帮助）-&gt;Rigister(注册) <br>
+<img src="image-50.png" alt="alt text"> <br>
+<img src="image-51.png" alt="alt text"> <br></p>
+<hr>
+<p>我们承诺售后保证，但为了您的稳定使用，建议关闭自动更新：<br>
+点击 File(文件)--&gt;settings（设置）<br>
+选择Appearance&amp;Behavior（外观与行为）--&gt;System Settings（系统设置）--&gt;updates（更新）<br>
+<img src="image-52.png" alt="alt text"> <br></p>
+<hr>
+<p>有同学疑问为什么不要输入激活码? 科普下：<br>
+软件激活后，会在当前用户所在生成key文件；<br>
+我们 直接用生成后的key文件，通过系统自带的批处理命令直接放到软件目录中，无需手动，简化操作；
+成功后，随便打开或新建一个项目进入开发界面，可以在顶部菜单栏Help菜单register选项查看【激活码】（有的版本需要点Remove License-&gt;activation code才能看到，慎点！！！当心手残给完全清除了）<br></p>
+<hr>
+<p>最后，祝您使用愉快！</p>
+<hr>
+
 </body>
 </html>
